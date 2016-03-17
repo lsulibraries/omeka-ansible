@@ -43,3 +43,17 @@ omeka_plugins:
 # directory from elsewhere on the file system. Eg, an attached EBS volume.
 
 # omeka_files: /path/to/files
+
+username: admin
+password: administrator
+password_confirm: administrator
+super_email: "su@example.com"
+administrator_email: "admin@example.com"
+site_title: omeka
+fullsize_constraint: "800"
+thumbnail_constraint: "200"
+square_thumbnail_constraint: "200"
+per_page_admin: "10"
+per_page_public: "10"
+tag_delimiter: "|"
+path_to_convert: "/usr/bin"

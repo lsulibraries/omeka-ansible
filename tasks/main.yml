@@ -32,6 +32,23 @@
   args:
     chdir: '{{ omeka_src }}/application/config'
 
+- name: Create a MySQL database for Omeka.
+  mysql_db:
+    db: "{{ omeka_dbname }}"
+    state: present
+
+- name: Create a MySQL user for Drupal.
+  mysql_user:
+    name: "{{ omeka_username }}"
+    host: "{{ omeka_host }}"
+    priv: "{{ omeka_dbname }}.*:ALL"
+    password: "{{ omeka_password }}"
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+
 - name: Set db.ini
   template:
     src: db.ini.j2
@@ -56,6 +73,8 @@
     path: '{{ omeka_src }}/files'
     mode: 0755
     recurse: yes
+    owner: www-data
+    group: www-data
 
 - name: Set file permissions (linked)
   when: omeka_files is defined
@@ -81,3 +100,5 @@
     dest: '{{ omeka_src }}/plugins/{{ item.name }}'
     accept_hostkey: yes
     force: yes
+
+- include: install.yml

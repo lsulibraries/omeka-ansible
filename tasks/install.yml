@@ -1,0 +1,3 @@
+---
+- name: curl 
+  command: 'curl -F username={{ username }} -F password={{ password }} -F password_confirm={{ password_confirm }} --form-string super_email="{{ super_email }}" --form-string administrator_email="{{ administrator_email }}" -F site_title={{ site_title }} -F fullsize_constraint="{{ fullsize_constraint }}" -F thumbnail_constraint="{{ thumbnail_constraint }}" -F square_thumbnail_constraint="{{ square_thumbnail_constraint }}" -F per_page_admin="{{ per_page_admin }}" -F per_page_public="{{ per_page_public }}" -F tag_delimiter="{{ tag_delimiter }}" -F path_to_convert="{{ path_to_convert }}" -F install_submit="Install"  http://localhost/{{ omeka_rel }}/install/install.php'
