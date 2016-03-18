@@ -43,6 +43,7 @@ omeka_plugins:
 # directory from elsewhere on the file system. Eg, an attached EBS volume.
 
 # omeka_files: /path/to/files
+
 username: admin
 password: administrator
 password_confirm: administrator
